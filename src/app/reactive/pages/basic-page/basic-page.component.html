@@ -1,19 +1,20 @@
-<h2>Reactivos: Básicos</h2>
+<h2>Reactives: Basics</h2>
 <hr>
 
 <div class="row">
     <div class="col">
 
-        <form autocomplete="off">
+        <form [formGroup]="myForm" (ngSubmit)="onSave()" autocomplete="off">
 
             <!-- Campo de producto -->
             <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Producto</label>
+                <label class="col-sm-3 col-form-label">Product</label>
                 <div class="col-sm-9">
 
                     <input type="text"
                            class="form-control"
-                           placeholder="Nombre del producto">
+                           formControlName="name"
+                           placeholder="Product Name">
 
                     <span class="form-text text-danger">
                         <!-- Debe de ser de 3 letras -->
@@ -24,27 +25,29 @@
 
             <!-- Campo de producto -->
             <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Precio</label>
+                <label class="col-sm-3 col-form-label">Price</label>
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
-                           placeholder="Precio del producto">
+                           formControlName="price"
+                           placeholder="Price of the product">
                     <span class="form-text text-danger">
-                        El precio debe de ser 0 o mayor
+                        The price must be 0 or greater
                     </span>
                 </div>
             </div>
 
             <!-- Campo de existencias -->
             <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Existencias</label>
+                <label class="col-sm-3 col-form-label">Stock</label>
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
-                           placeholder="Existencias del producto">
+                           formControlName="inStorage"
+                           placeholder="Product Stock">
 
                     <span class="form-text text-danger">
-                         Las existencias deben de ser 0 o mayor
+                        Stock must be 0 or greater
                     </span>
                 </div>
             </div>
@@ -54,7 +57,7 @@
                 <div class="col">
                     <button type="submit"
                             class="btn btn-primary float-end">
-                        Guardar
+                        Save
                     </button>
                 </div>
             </div>
