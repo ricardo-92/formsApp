@@ -1,7 +1,7 @@
 <h2>Reactive: <small> Dynamics </small></h2>
 <hr>
 
-<form [formGroup]="myForm" (ngSubmit)="onSubmit" autocomplete="off">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
     <!-- Nombre -->
     <div class="mb-3 row">
@@ -10,8 +10,8 @@
             <input class="form-control"
                   formControlName="name"
                   placeholder="Person Name">
-            <span class="form-text text-danger">
-                   error message
+            <span *ngIf="isValidField('name')" class="form-text text-danger">
+                   {{ getFieldError('name') }}
             </span>
         </div>
     </div>
@@ -48,13 +48,14 @@
                       [formControlName]="i"
                       >
 
-                    <button class="btn btn-outline-danger"
+                    <button (click)="onDeleteFavorite( i )"
+                            class="btn btn-outline-danger"
                             type="button">
                       Delete
                   </button>
                 </div>
-                <span class="form-text text-danger">
-                   This camp is required
+                <span *ngIf="isValidFieldInArray(favoriteGames, i)" class="form-text text-danger">
+                  This camp is required.
                 </span>
 
             </div>
