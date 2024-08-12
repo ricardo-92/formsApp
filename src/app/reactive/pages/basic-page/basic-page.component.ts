@@ -48,21 +48,19 @@ export class BasicPageComponent implements OnInit {
 
           case 'minlength':
             return `Minimum ${ errors['minlength'].requiredLength } characters`;
-      }
-    }
+      };
+    };
 
     return null;
   }
 
-  onSave():void {
-
-    if ( this.myForm.invalid )
+  onSave(): void {
+    if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
-      return;
-
-    console.log(this.myForm.value);
-
-    this.myForm.reset({ price: 0, inStorage: 0 });
+    } else {
+      console.log(this.myForm.value);
+      this.myForm.reset({ price: 0, inStorage: 0 });
+    }
   }
 
 }
